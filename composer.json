@@ -1,5 +1,5 @@
 {
-    "name": "patrickwalsh/test-module",
+    "name": "patrickwalsh/react_app",
     "type": "drupal-custom-module",
     "require": {
         "drupal/redirect": "^1.8"
