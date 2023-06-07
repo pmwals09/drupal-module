@@ -1,0 +1,18 @@
+.dataviz__prompt {
+  position: absolute;
+  max-width: calc(2 * 688px);
+  font-family: brandon-grotesque;
+  color: #fff;
+  font-size: calc(2 * 5em);
+  font-weight: 500;
+  line-height: calc(2 * 86px);
+  top: calc(2 * 170px);
+
+  &--left {
+    left: calc(2 * 81px);
+  }
+
+  &--right {
+    right: 140px;
+  }
+}

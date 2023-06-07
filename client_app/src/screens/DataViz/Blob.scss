@@ -1,0 +1,37 @@
+.dataviz__blob {
+  position: absolute;
+  width: calc(2 * 1590px);
+  height: calc(2 * 1590px);
+  background-color: #0064aa;
+  border-radius: 1590px;
+  bottom: calc(2 * 52px);
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    bottom: 0;
+    mix-blend-mode: darken;
+    height: 100%;
+    width: auto;
+
+    &--right {
+      transform: scaleX(-1);
+    }
+  }
+
+  &--left {
+    left: -37%;
+
+    .dataviz__blob__bg {
+      right: -135px;
+    }
+  }
+
+  &--right {
+    right: -37%;
+
+    .dataviz__blob__bg {
+      left: -135px;
+    }
+  }
+}

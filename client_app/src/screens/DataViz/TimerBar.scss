@@ -1,0 +1,35 @@
+$timer_duration: 10s;
+$timer_height: calc(2 * 17px);
+
+.dataviz__timer-bar {
+  height: $timer_height;
+  width: 100%;
+  background-color: #333435;
+  position: relative;
+  z-index: 1000;
+
+  &__progress {
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #fff;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.06) 36.67%,
+      #fff1fc 100%
+    );
+    animation: progressanimation $timer_duration infinite;
+  }
+}
+
+@keyframes progressanimation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}

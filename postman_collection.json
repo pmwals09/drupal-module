@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "19a853dd-736c-48d1-9ed1-d86ea42e9ff8",
+		"name": "NMNH Chatbot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18569043"
+	},
+	"item": [
+		{
+			"name": "responses",
+			"item": [
+				{
+					"name": "save response",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "day",
+									"value": "21",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "month",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "2023",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "3rd_museum",
+									"type": "text"
+								},
+								{
+									"key": "question",
+									"value": "question_1",
+									"type": "text"
+								},
+								{
+									"key": "answer",
+									"value": "no_date",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{domain}}/data/submission/responses/save",
+							"protocol": "https",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"data",
+								"submission",
+								"responses",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get current day's responses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{domain}}/data/submission/responses/report",
+							"protocol": "https",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"data",
+								"submission",
+								"responses",
+								"report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "day",
+			"item": [
+				{
+					"name": "report day",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{domain}}/data/submission/day/report",
+							"protocol": "https",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"data",
+								"submission",
+								"day",
+								"report"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "month",
+			"item": [
+				{
+					"name": "report month",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{domain}}/data/submission/month/report",
+							"protocol": "https",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"data",
+								"submission",
+								"month",
+								"report"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "year",
+			"item": [
+				{
+					"name": "report year",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{domain}}/data/submission/year/report",
+							"protocol": "https",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"data",
+								"submission",
+								"year",
+								"report"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "total",
+			"item": [
+				{
+					"name": "report total",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{domain}}/data/submission/total/report",
+							"protocol": "https",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"data",
+								"submission",
+								"total",
+								"report"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "localhost:57120       ",
+			"type": "string"
+		}
+	]
+}

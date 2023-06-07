@@ -1,0 +1,19 @@
+services:
+  react_app.response_service:
+    class: Drupal\react_app\Services\ResponseService
+    arguments: ['@database']
+  react_app.day_service:
+    class: Drupal\react_app\Services\DayService
+    arguments: ['@database']
+  react_app.month_service:
+    class: Drupal\react_app\Services\MonthService
+    arguments: ['@database']
+  react_app.year_service:
+    class: Drupal\react_app\Services\YearService
+    arguments: ['@database']
+  react_app.total_service:
+    class: Drupal\react_app\Services\TotalService
+    arguments: ['@database']
+  react_app.csv_service:
+    class: Drupal\react_app\Services\CsvService
+    arguments: ['@database', '@messenger']

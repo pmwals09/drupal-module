@@ -1,0 +1,10 @@
+dist:
+  version: 1.x
+  js:
+    client_app/dist/static/js/main.js: { preprocess: false }
+  css:
+    theme:
+      client_app/dist/static/css/main.css: { preprocess: false }
+
+  dependencies:
+    - core/drupalSettings

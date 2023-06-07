@@ -1,0 +1,34 @@
+.dataviz__chart__label--pie {
+  max-width: 300px;
+  white-space: normal;
+  .label__element {
+    font-family: brandon-grotesque;
+    color: #fff;
+    fill: #fff;
+
+    &--separator {
+      background-color: rgba(151, 151, 151, 0.49);
+      border-color: rgba(151, 151, 151, 0.49);
+      max-width: calc(2 * 180px);
+      height: calc(2 * 4px);
+    }
+
+    &--number {
+      font-size: calc(2 * 64px);
+      font-weight: 900;
+      text-shadow: 0px calc(2 * 2px) calc(4px * 2) rgba(0, 0, 0, 0.5);
+    }
+
+    &--text {
+      font-size: calc(2 * 48px);
+      font-weight: 500;
+      line-height: calc(2 * 56px);
+      margin-top: calc(2 * 17px);
+      min-width: 370px;
+    }
+  }
+}
+
+.highcharts-label > span {
+  width: fit-content !important;
+}

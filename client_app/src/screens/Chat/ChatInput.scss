@@ -1,0 +1,120 @@
+@use "../../util" as u;
+@use "../../var";
+
+.chat__topic__input {
+  $bg-color: #eee;
+  $font-size: var.$text-font-size;
+
+  width: 100%;
+  border-top: u.px_to_vh(1, 896) solid rgba(151, 151, 151, 0.41);
+
+  .input__container {
+    width: 90%;
+    margin: u.rem_to_vh(1, 896) auto;
+    background-color: $bg-color;
+    display: flex;
+    border-radius: u.rem_to_vh(1.25, 896);
+
+    &__active-area {
+      position: relative;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      font-family: brandon-grotesque;
+      font-size: $font-size;
+
+      .active-area {
+        &__label {
+          position: absolute;
+        }
+
+        &__input {
+          color: black;
+          margin: 0.5em;
+          background: none;
+          border: none;
+          color: rgba(0, 0, 0, 0.48);
+          overflow: hidden;
+          resize: none;
+          opacity: 1;
+
+          &--has-input {
+            color: black;
+          }
+
+          &--overfull {
+            overflow-y: auto;
+          }
+        }
+
+        &__label,
+        &__input {
+          width: 100%;
+          margin-left: 1em;
+        }
+      }
+
+      .sizing-span {
+        position: absolute;
+        visibility: hidden;
+        white-space: pre-wrap;
+      }
+    }
+
+    &__decoration {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      padding-right: u.rem_to_vh(1, 896);
+
+      .input__button {
+        border: none;
+        padding: 0;
+        margin: 0;
+        background-color: $bg-color;
+
+        &--submit {
+          // NOTE: because we're rotating the SVG later, this width actually
+          // adjusts the height
+          max-width: $font-size;
+          padding: 1px;
+          .input__button__icon {
+            transform: rotate(-90deg);
+            stroke: #000;
+
+            &.input__button--disabled {
+              stroke: #ccc;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .input__fast-options {
+    font-size: $font-size;
+    display: flex;
+    font-family: brandon-grotesque;
+    padding: 0.5em 0.75em;
+    gap: 0.33em;
+    background-color: #ebebeb;
+
+    &__option {
+      color: black;
+      flex-grow: 1;
+      font-weight: bold;
+      padding-top: 0.75em;
+      padding-bottom: 0.75em;
+      border-radius: 0.5em;
+      background-color: #fff;
+      box-shadow: 0 u.px_to_vh(1, 896) u.px_to_vh(2, 896) 0 #c6c6c6;
+      border: none;
+
+      &--selected {
+        border: u.px_to_vh(2, 896) solid #585858;
+        margin: u.px_to_vh(-2, 896);
+        background-color: rgba(216, 216, 216, 0.45);
+      }
+    }
+  }
+}

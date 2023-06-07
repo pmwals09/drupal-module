@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+TOP="$(git rev-parse --show-toplevel)";
+NO_SETTINGS="smithsonian"
+
+echo "$1"
+if [[ "$1" == "$NO_SETTINGS" ]] && [[ -f $TOP/web/sites/default/settings.php ]]; then
+  echo "Committing to $NO_SETTINGS and has settings.php. Rebase nmnh-main";
+  echo "and push from there:";
+  echo "- git rebase master nmnh-main";
+  echo "- git push smithsonian nmnh-main:main";
+  exit 1;
+fi

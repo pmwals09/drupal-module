@@ -1,0 +1,280 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ * All schema tables will be removed on module uninstall
+ */
+function react_app_schema() {
+    $schema['all_responses'] = array(
+        'description' => 'Raw response data from all time',
+        'fields' => array(
+            'rid' => array(
+                'description' => 'response id',
+                'type' => 'serial',
+                'not null' => TRUE,
+            ),
+            'date' => array(
+                'description' => 'Date submitted',
+                'type' => 'varchar',
+                'mysql_type' => 'date',
+                'not null' => TRUE,
+            ),
+            'location' => array(
+                'description' => 'which app instance the submission originates from',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => 'nmnh',
+            ),
+            'question' => array(
+                'description' => 'question name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'answer' => array(
+                'description' => 'answer name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            )
+        ),
+        'primary key' => array('rid'),
+    );
+    $schema['day_responses'] = array(
+        'description' => 'Raw response data from current day',
+        'fields' => array(
+            'rid' => array(
+                'description' => 'response id',
+                'type' => 'serial',
+                'not null' => TRUE,
+            ),
+            'day' => array(
+                'description' => 'day of submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'month' => array(
+                'description' => 'month of submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'year' => array(
+                'description' => 'year of submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'location' => array(
+                'description' => 'which app instance the submission originates from',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => 'nmnh',
+            ),
+            'question' => array(
+                'description' => 'question name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'answer' => array(
+                'description' => 'answer name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            )
+        ),
+        'primary key' => array('rid'),
+    );
+    $schema['submission_day'] = array(
+        'description' => 'Aggregated responses per day',
+        'fields' => array(
+            'day' => array(
+                'description' => 'day of submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+           'month' => array(
+                'description' => 'month of submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'year' => array(
+                'description' => 'year of submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'location' => array(
+                'description' => 'which app instance the submission originates from',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => 'nmnh',
+            ),
+            'question' => array(
+                'description' => 'question name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'answer' => array(
+                'description' => 'answer name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'answer_count' => array(
+                'description' => 'value aggregation count',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            )
+        ),
+        'primary key' => array('day', 'month', 'year', 'question', 'answer', 'location'),
+    );
+
+    $schema['submission_month'] = array(
+        'description' => 'Aggregated responses per month',
+        'fields' => array(
+            'day' => array(
+                'description' => 'day of submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+           'month' => array(
+                'description' => 'month of submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'year' => array(
+                'description' => 'year of submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'location' => array(
+                'description' => 'which app instance the submission originates from',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => 'nmnh',
+            ),
+            'question' => array(
+                'description' => 'question name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'answer' => array(
+                'description' => 'answer name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'answer_count' => array(
+                'description' => 'value aggregation count',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            )
+        ),
+        'primary key' => array('day','month', 'year', 'question', 'answer', 'location'),
+    );
+    
+    $schema['submission_year'] = array(
+        'description' => 'Aggregated responses per year',
+        'fields' => array(
+            'month' => array(
+                'description' => 'month of submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'year' => array(
+                'description' => 'year of submission',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'location' => array(
+                'description' => 'which app instance the submission originates from',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => 'nmnh',
+            ),
+            'question' => array(
+                'description' => 'question name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'answer' => array(
+                'description' => 'answer name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'answer_count' => array(
+                'description' => 'value aggregation count',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            )
+        ),
+        'primary key' => array('month', 'year', 'question', 'answer', 'location'),
+    );
+    $schema['submission_total'] = array(
+        'description' => 'Aggregated responses from all time',
+        'fields' => array(
+            'location' => array(
+                'description' => 'which app instance the submission originates from',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => 'nmnh',
+            ),
+            'question' => array(
+                'description' => 'question name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'answer' => array(
+                'description' => 'answer name',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'answer_count' => array(
+                'description' => 'value aggregation count',
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            )
+        ),
+        'primary key' => array('question', 'answer', 'location'),
+    );
+
+    return $schema;
+}

@@ -1,0 +1,19 @@
+.dataviz__chart {
+  position: absolute;
+  width: calc(2 * 988px);
+  height: calc(2 * 844px);
+  top: 50%;
+  transform: translateY(-50%);
+
+  &--left {
+    right: 40px;
+  }
+
+  &--right {
+    left: 100px;
+  }
+}
+
+.dataviz__xaxis > text {
+  font-family: brandon-grotesque;
+}

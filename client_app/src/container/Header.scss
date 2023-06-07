@@ -1,0 +1,61 @@
+@use "../var";
+@use "../util";
+
+$outer-margin: util.px_to_vh(15, 896);
+.app-header {
+  position: relative;
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    flex-grow: 1;
+    font-family: brandon-grotesque;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    font-size: var.$header-font-size;
+    text-align: center;
+    margin: var.$header-margin 0;
+    text-transform: uppercase;
+    line-height: var.$header-line-height;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__nav {
+    position: absolute;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+
+    &__icon {
+      fill: white;
+      margin: 0 $outer-margin;
+      height: 1.5625vh;
+      width: auto;
+    }
+
+    &__text {
+      font-family: brandon-grotesque;
+      font-weight: 700;
+      font-size: 1.96vh;
+      text-transform: uppercase;
+    }
+    &--left {
+      .app-header__nav__icon {
+        height: 1.96vh;
+        width: auto;
+        transform: rotate(180deg);
+      }
+    }
+    &--right {
+      right: 0;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<?php
+use Drupal\Core\Database\Database;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_cron().
+ */
+function react_app_cron(){
+  $responseManager = \Drupal::service('react_app.response_service');
+  $responseManager->aggregate();
+
+  $dayManager = \Drupal::service('react_app.day_service');
+  $dayManager->aggregate();
+
+  $monthManager = \Drupal::service('react_app.month_service');
+  $monthManager->aggregate();
+}
+
+

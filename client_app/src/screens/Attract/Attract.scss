@@ -1,0 +1,25 @@
+.attract {
+  color: white;
+  text-decoration: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: brandon-grotesque;
+  position: relative;
+
+  &__video {
+    height: 100%;
+    width: auto;
+  }
+
+  &__qr {
+    position: absolute;
+    height: 15%;
+    width: auto;
+    bottom: 10%;
+  }
+}

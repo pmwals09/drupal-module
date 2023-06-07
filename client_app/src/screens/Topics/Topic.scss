@@ -1,0 +1,46 @@
+@use "../../util.scss";
+
+.topic {
+  &-container {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: util.px_to_vh(10, 896);
+    border-radius: 5px;
+    box-shadow: 0 1px 6px 0 rgba(177, 177, 177, 0.46);
+    cursor: pointer;
+    padding: 0 util.px_to_vh(20, 896);
+
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+  &__arrow {
+    width: 35px;
+    height: auto;
+    stroke-width: 2px;
+  }
+  &__icon {
+    height: 57.5%;
+    width: auto;
+  }
+}
+
+// While the styles belong to a class elsewhere, the Link component that applies
+// the default anchor styles is in Topix.jsx
+.main-content {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &--topics {
+    background-color: black;
+  }
+
+  &--chat {
+    background-color: unset;
+  }
+}

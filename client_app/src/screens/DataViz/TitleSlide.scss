@@ -1,0 +1,59 @@
+.dataviz__title-slide {
+  &__container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  &__copy {
+    color: white;
+    font-family: brandon-grotesque;
+    font-weight: 500;
+    font-size: 225px;
+    text-transform: uppercase;
+    position: absolute;
+    height: 100%;
+    width: 1450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+
+    &--left {
+      right: 300px;
+    }
+
+    &--right {
+      left: 400px;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+
+    &--left {
+      left: 0;
+    }
+
+    &--right {
+      right: 0;
+    }
+  }
+
+  &__persona {
+    position: absolute;
+    bottom: 0;
+    height: calc(100% - 50px);
+
+    &--left {
+      left: 0;
+    }
+
+    &--right {
+      right: 0;
+    }
+  }
+}

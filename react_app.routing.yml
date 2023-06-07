@@ -1,0 +1,127 @@
+# Despite the linting to the contrary, the docs say to use 'TRUE' instead of
+# true for no_cache: https://www.drupal.org/docs/drupal-apis/routing-system/structure-of-routes
+
+## APP ##
+# - Render React App 
+react_app.chatbot:
+  path: '/chatbot/{path}'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\ReactController::chatbot'
+    _title: ''
+  requirements: 
+    _permission: 'access content'
+    path: '.+'
+      
+react_app.chatbot_2:
+  path: '/chatbot/{path}/{subpath}'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\ReactController::chatbot'
+    _title: ''
+  requirements: 
+    _permission: 'access content'
+    path: '.+'
+
+## ADMIN ##
+# - Settings Form
+react_app.settings_form:
+  path: /admin/config/system/chatbot
+  defaults:
+    _form: 'Drupal\react_app\Form\SettingsForm'
+    _title: 'Chatbot Settings'
+  requirements:
+    _permission: 'configure_form'
+
+react_app.csv_form:
+  path: /admin/chatbot/data-export
+  defaults:
+    _form: '\Drupal\react_app\Form\CsvForm'
+    _title: 'Chatbot Data CSV Export'
+  requirements:
+    _permission: 'export_chatbot_data'
+
+## API ##
+# - Save
+react_app.responses.save:
+  path: '/data/submission/responses/save'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\ResponseController::save'
+  requirements: 
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+# - Report
+
+react_app.day_responses.report:
+  path: '/data/submission/responses/report'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\ResponseController::report'
+  requirements: 
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+react_app.submission_day.report:
+  path: '/data/submission/day/report'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\SubmissionDayController::report'
+  requirements: 
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+react_app.submission_month.report:
+  path: '/data/submission/month/report'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\SubmissionMonthController::report'
+  requirements: 
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+react_app.submission_year.report:
+  path: '/data/submission/year/report'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\SubmissionYearController::report'
+  requirements: 
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+react_app.submission_total.report:
+  path: '/data/submission/total/report'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\SubmissionTotalController::report'
+  requirements: 
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+
+# - Aggregate
+react_app.responses.aggregate:
+  path: '/data/submission/responses/aggregate'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\ResponseController::aggregate'
+  requirements: 
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+react_app.submission_day.aggregate:
+  path: '/data/submission/day/aggregate'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\SubmissionDayController::aggregate'
+  requirements: 
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+react_app.submission_month.aggregate:
+  path: '/data/submission/month/aggregate'
+  defaults:
+    _controller: '\Drupal\react_app\Controller\SubmissionMonthController::aggregate'
+  requirements: 
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'

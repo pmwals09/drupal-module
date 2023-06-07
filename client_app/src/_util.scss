@@ -1,0 +1,7 @@
+@function rem_to_vh($rem, $orig_px_h) {
+  @return calc($rem * 16 / $orig_px_h * 100) + 0vh;
+}
+
+@function px_to_vh($px, $orig_px_h) {
+  @return calc(calc($px / $orig_px_h) * 100) + 0vh;
+}

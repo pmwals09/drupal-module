@@ -1,0 +1,10 @@
+react_app.settings:
+  title: 'Chatbot Settings'
+  description: 'Configure the chatbot'
+  route_name: react_app.settings_form
+  parent: system.admin_config_system
+react_app.csv_form:
+  title: 'Chatbot Data Export'
+  description: 'Download a CSV with chatbot response data'
+  route_name: react_app.csv_form
+  parent: system.admin_config_system

@@ -1,0 +1,7 @@
+react_app.settings:
+  type: mapping
+  label: 'React App Module settings'
+  mapping:
+    default_count:
+      type: integer
+      label: 'Default count'

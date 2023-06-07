@@ -1,0 +1,29 @@
+.more-messages {
+  &__button {
+    background-color: #000;
+    color: #fff;
+    font-size: 1.66vh;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: sticky;
+    bottom: 1em;
+    display: flex;
+    width: max-content;
+    align-items: center;
+    font-family: brandon-grotesque;
+    border-radius: 1em;
+    padding: 0.25em 1em;
+    border: 1px solid black;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__icon {
+    transform: rotate(90deg);
+    margin-left: 1em;
+    fill: #fff;
+  }
+}

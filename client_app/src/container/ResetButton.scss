@@ -1,0 +1,65 @@
+@use "./Header.scss" as h;
+
+.app-header__start-over {
+  $button-size: 5vh;
+
+  margin: 0 h.$outer-margin;
+  font-size: 1.3vh;
+  font-family: brandon-grotesque;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid black;
+  color: #00b4ff;
+  background-color: #232223;
+  width: $button-size;
+  height: $button-size;
+  line-height: 1.1;
+}
+
+.start-over-confirm {
+  &__modal {
+    font-family: brandon-grotesque;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgb(204, 204, 204);
+    background: #232232;
+    color: white;
+    font-size: 1.66vh;
+    text-align: center;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: calc(2 * 1.66vh);
+    margin: 0 h.$outer-margin;
+    line-height: 1.2;
+    border: none;
+    border-radius: 1.66vh;
+    font-weight: 500;
+
+    &-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin-top: 1em;
+
+    &__action {
+      color: #232232;
+      font-size: 1.66vh;
+      font-family: brandon-grotesque;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 0.66em;
+      border-radius: 0.5em;
+      border: 1px solid black;
+    }
+  }
+}
