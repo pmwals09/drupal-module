@@ -1,0 +1,5 @@
+{
+    "name": "patrickwalsh/test-module",
+    "type": "drupal-custom-module",
+    "require": {}
+}
